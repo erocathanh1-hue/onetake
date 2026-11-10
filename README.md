@@ -14,7 +14,7 @@
 
 [![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-lightgrey.svg)](LICENSE)
 [![Type](https://img.shields.io/badge/Type-Agent%20Skill-333.svg)](SKILL.md)
-[![Cases](https://img.shields.io/badge/Cases-11%20films-orange.svg)](cases/)
+[![Cases](https://img.shields.io/badge/Cases-13%20films-orange.svg)](cases/)
 [![Continuity](https://img.shields.io/badge/Continuity-measured%20per%20boundary-brightgreen.svg)](scripts/verify_promo.py)
 
 **▶ Free for noncommercial use. Making films for clients or a business? [onetake Pro](https://onetakemotion.com) adds a commercial licence and every film's source — $79, one time.**\
@@ -155,7 +155,20 @@ git clone https://github.com/feitangyuan/onetake.git ~/.agents/skills/onetake
 Then ask: *"Make a 15 s launch video for my app"*, *"a feature demo rebuilt from these screenshots, no screen
 recording"*, *"my motion video feels like a slideshow — fix it"*.
 
-**Requires** python3 with `playwright` (chromium), `numpy`, `scipy`, `Pillow`, `matplotlib` (`opencv-python` for
+Install the Python dependencies from the cloned repository, then install Playwright's browser:
+
+```bash
+cd ~/.agents/skills/onetake  # use ~/.claude/skills/onetake for Claude Code
+python3 -m venv .venv
+source .venv/bin/activate  # bash / zsh
+python -m pip install -r requirements.txt
+python -m playwright install chromium
+```
+
+Install `ffmpeg` (including `ffprobe`) and Node.js separately with your system package manager.
+On Linux, if Chromium reports missing system libraries, run `python -m playwright install --with-deps chromium`.
+
+**Requires** python3 with `playwright` (chromium), `numpy`, `scipy`, `Pillow`, `matplotlib`, `fonttools`, `brotli` (`opencv-python` for
 reference analysis), `ffmpeg`, `node`. Narration adds `faster-whisper` and Kokoro TTS. Music is royalty-free by default.
 
 | | |
@@ -240,7 +253,20 @@ git clone https://github.com/feitangyuan/onetake.git ~/.agents/skills/onetake
 
 然后直接说：「给我的 App 做个 15 秒发布视频」「按这几张截图复刻界面做功能演示，不录屏」「我的动效视频像 PPT，帮我改」。
 
-**依赖**：python3（`playwright` + chromium、`numpy`、`scipy`、`Pillow`、`matplotlib`，分析参考片需要 `opencv-python`）、`ffmpeg`、`node`。
+在克隆的仓库中安装 Python 依赖及 Playwright 浏览器：
+
+```bash
+cd ~/.agents/skills/onetake  # Claude Code 使用 ~/.claude/skills/onetake
+python3 -m venv .venv
+source .venv/bin/activate  # bash / zsh
+python -m pip install -r requirements.txt
+python -m playwright install chromium
+```
+
+另用系统包管理器安装 `ffmpeg`（含 `ffprobe`）及 Node.js。
+Linux 上若 Chromium 提示缺少系统库，运行 `python -m playwright install --with-deps chromium`。
+
+**依赖**：python3（`playwright` + chromium、`numpy`、`scipy`、`Pillow`、`matplotlib`、`fonttools`、`brotli`，分析参考片需要 `opencv-python`）、`ffmpeg`、`node`。
 配音需要 `faster-whisper` 和 Kokoro TTS。音乐默认用免版权曲库。
 
 ### 许可证
