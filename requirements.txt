@@ -1,0 +1,11 @@
+# Python dependencies for rendering, verification, reference analysis and looks.
+# Install Chromium separately: python -m playwright install chromium
+# Narration dependencies are optional; see SKILL.md.
+playwright
+numpy
+scipy
+Pillow
+matplotlib
+opencv-python
+fonttools
+brotli
